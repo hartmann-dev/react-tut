@@ -18,7 +18,7 @@ class App extends Component {
       },
       {
         id: 3,
-        name: "Hilde",
+        name: "Ilse",
         age: 1
       }
     ],
@@ -38,7 +38,7 @@ class App extends Component {
           age: 9
         },
         {
-          name: "Hilde",
+          name: "Ilse",
           age: 1
         }
       ]
