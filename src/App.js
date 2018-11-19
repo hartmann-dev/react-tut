@@ -22,7 +22,7 @@ class App extends Component {
     otherState: "was anderes"
   };
 
-  switchNameHandler = () => {
+  switchNameHandler = newName => {
     // console.log("click");
     // DON'T DO THIS: this.state.persons[0].name = "Harald";
     // DO THIS:
@@ -33,7 +33,7 @@ class App extends Component {
           age: 35
         },
         {
-          name: "Linus",
+          name: newName,
           age: 9
         },
         {
@@ -49,7 +49,9 @@ class App extends Component {
       <div className="App">
         <h1>Hallo</h1>
         <p>Läuft!</p>
-        <button onClick={this.switchNameHandler}>Namensänderung</button>
+        <button onClick={() => this.switchNameHandler("Bob")}>
+          Namensänderung
+        </button>
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
@@ -57,6 +59,7 @@ class App extends Component {
         <Person
           name={this.state.persons[1].name}
           age={this.state.persons[1].age}
+          click={this.switchNameHandler}
         >
           My Hobbies: Star Wars
         </Person>
