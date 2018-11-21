@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
 import Person from "./Person/Person";
 
-class Persons extends Component {
+class Persons extends PureComponent {
   constructor(props) {
     super(props);
     console.log("[Persons.js] Inside Contructor", props);
@@ -22,15 +22,22 @@ class Persons extends Component {
       nextProps
     );
   }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log(
-      "[UPDATE Persons.js] Inside shouldComponentUpdate",
-      nextProps,
-      nextState
-    );
-    return nextProps.persons !== this.props.persons;
-  }
+  //  Wenn alle Props und States verglichen werden
+  //  kann man auch einfach von PureComponent ableiten
+  //
+  //   shouldComponentUpdate(nextProps, nextState) {
+  //     console.log(
+  //       "[UPDATE Persons.js] Inside shouldComponentUpdate",
+  //       nextProps,
+  //       nextState
+  //     );
+  //     return (
+  //       nextProps.persons !== this.props.persons ||
+  //       nextProps.changed !== this.props.changed ||
+  //       nextProps.clicked !== this.props.clicked
+  //     );
+  //     // return true;
+  //   }
 
   componentWillUpdate(nextProps, nextState) {
     console.log(
