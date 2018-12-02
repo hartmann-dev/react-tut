@@ -1,7 +1,8 @@
 import React, { PureComponent } from "react";
 import classes from "./App.css";
 
-import WithClass from "../hoc/WithClass";
+import withClass from "../hoc/withClass";
+import Aux from "../hoc/Auxiliary";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 class App extends PureComponent {
@@ -107,7 +108,7 @@ class App extends PureComponent {
     }
 
     return (
-      <WithClass classes={classes.App}>
+      <Aux>
         <button
           onClick={() => {
             this.setState({ showPersons: true });
@@ -122,7 +123,7 @@ class App extends PureComponent {
           clicked={this.togglePersonsHandler}
         />
         {persons}
-      </WithClass>
+      </Aux>
     );
     // return React.createElement(
     //   "div",
@@ -132,4 +133,4 @@ class App extends PureComponent {
   }
 }
 
-export default App;
+export default withClass(App, classes.App);
